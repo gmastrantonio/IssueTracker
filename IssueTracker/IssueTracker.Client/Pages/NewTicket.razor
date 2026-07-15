@@ -1,0 +1,102 @@
+﻿@page "/tickets/new"
+@using IssueTracker.Core.DTOs
+@using IssueTracker.Core.Models
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>Nuovo Ticket</PageTitle>
+
+<div class="container mt-4" style="max-width: 600px;">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title mb-0"><i class="bi bi-bug-fill"></i> Crea Nuovo Ticket</h3>
+        </div>
+        <div class="card-body">
+
+            @* EditForm gestisce automaticamente lo stato della convalida in Blazor *@
+            <EditForm Model="@newTicket" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator /> @* Abilita le annotazioni di convalida del DTO *@
+
+                <div class="mb-3">
+                    <label for="title" class="form-label fw-bold">Titolo della segnalazione</label>
+                    <InputText id="title" class="form-control" @bind-Value="newTicket.Title" placeholder="Es. Errore caricamento carrello..." />
+                    <ValidationMessage For="@(() => newTicket.Title)" class="text-danger small" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label fw-bold">Descrizione dettagliata</label>
+                    <InputTextArea id="description" class="form-control" rows="4" @bind-Value="newTicket.Description" placeholder="Fornisci dettagli sui passaggi per riprodurre il bug..." />
+                    <ValidationMessage For="@(() => newTicket.Description)" class="text-danger small" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="priority" class="form-label fw-bold">Priorità</label>
+                    <InputSelect id="priority" class="form-select" @bind-Value="newTicket.Priority">
+                        @foreach (var priority in Enum.GetValues<TicketPriority>())
+                        {
+                            <option value="@priority">@priority</option>
+                        }
+                    </InputSelect>
+                </div>
+
+                @if (isSubmitting)
+                {
+                    <div class="alert alert-info text-center py-2 mb-3">
+                        <div class="spinner-border spinner-border-sm text-info me-2" role="status"></div>
+                        Invio della segnalazione in corso...
+                    </div>
+                }
+
+                <div class="d-flex justify-content-end gap-2 mt-4">
+                    <button type="button" class="btn btn-outline-secondary" @onclick="GoBack" disabled="@isSubmitting">
+                        Annulla
+                    </button>
+                    <button type="submit" class="btn btn-success" disabled="@isSubmitting">
+                        <i class="bi bi-check-circle-fill"></i> Salva Ticket
+                    </button>
+                </div>
+            </EditForm>
+
+        </div>
+    </div>
+</div>
+
+@code {
+    private CreateTicketDto newTicket = new CreateTicketDto();
+    private bool isSubmitting = false;
+
+    private async Task HandleValidSubmit()
+    {
+        isSubmitting = true;
+
+        try
+        {
+            // Inviamo il DTO formattato in JSON alle API del nostro controller
+            var response = await Http.PostAsJsonAsync("api/tickets", newTicket);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Se il salvataggio va a buon fine, reindirizziamo l'utente alla dashboard dei ticket
+                Navigation.NavigateTo("/tickets");
+            }
+            else
+            {
+                Console.WriteLine("Errore del server durante il salvataggio del ticket.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore di connessione: {ex.Message}");
+        }
+        finally
+        {
+            isSubmitting = false;
+        }
+    }
+
+    private void GoBack()
+    {
+        Navigation.NavigateTo("/tickets");
+    }
+}

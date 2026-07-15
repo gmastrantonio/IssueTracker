@@ -1,0 +1,11 @@
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\bin\Debug\net8.0\IssueTracker.Core.deps.json
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\bin\Debug\net8.0\IssueTracker.Core.dll
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\bin\Debug\net8.0\IssueTracker.Core.pdb
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.AssemblyInfoInputs.cache
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.AssemblyInfo.cs
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.csproj.CoreCompileInputs.cache
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.dll
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\refint\IssueTracker.Core.dll
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.pdb
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\ref\IssueTracker.Core.dll

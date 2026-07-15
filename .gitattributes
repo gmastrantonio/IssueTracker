@@ -1,0 +1,7 @@
+* text=auto
+
+*.cs text eol=crlf
+*.razor text eol=crlf
+*.html text eol=crlf
+*.css text eol=crlf
+*.json text eol=crlf

@@ -1,0 +1,109 @@
+﻿@page "/tickets"
+@using IssueTracker.Core.DTOs
+@using System.Net.Http.Json
+@inject HttpClient Http
+
+<PageTitle>Dashboard Ticket</PageTitle>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Gestione Segnalazioni</h2>
+        <a href="/tickets/new" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Nuovo Ticket
+        </a>
+    </div>
+
+    @if (tickets == null)
+    {
+        <div class="d-flex align-items-center justify-content-center my-5">
+            <div class="spinner-border text-primary me-3" role="status"></div>
+            <span>Caricamento dei ticket in corso...</span>
+        </div>
+    }
+    else if (!tickets.Any())
+    {
+        <div class="alert alert-info" role="alert">
+            Non è presente alcun ticket nel sistema. Clicca su "Nuovo Ticket" per creare il primo!
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Titolo</th>
+                        <th>Priorità</th>
+                        <th>Stato</th>
+                        <th>Creato il</th>
+                        <th>Autore</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ticket in tickets)
+                    {
+                        <tr>
+                            <td><strong>#@ticket.Id</strong></td>
+                            <td>
+                                <div class="fw-bold">@ticket.Title</div>
+                                <small class="text-muted text-truncate d-inline-block" style="max-width: 300px;">
+                                    @ticket.Description
+                                </small>
+                            </td>
+                            <td>
+                                <span class="badge @GetPriorityBadgeClass(ticket.Priority)">
+                                    @ticket.Priority
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge @GetStatusBadgeClass(ticket.Status)">
+                                    @ticket.Status
+                                </span>
+                            </td>
+                            <td>@ticket.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@ticket.AuthorName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@code {
+    private List<TicketResponseDto>? tickets;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Eseguiamo la chiamata GET asincrona verso l'endpoint /api/tickets del nostro controller
+            tickets = await Http.GetFromJsonAsync<List<TicketResponseDto>>("api/tickets");
+        }
+        catch (Exception ex)
+        {
+            // In caso di errore di connessione, impostiamo una lista vuota per non bloccare l'UI
+            tickets = new List<TicketResponseDto>();
+            Console.WriteLine($"Errore durante il recupero dei ticket: {ex.Message}");
+        }
+    }
+
+    private string GetPriorityBadgeClass(string priority) => priority switch
+    {
+        "Low" => "bg-secondary",
+        "Medium" => "bg-info text-dark",
+        "High" => "bg-warning text-dark",
+        "Urgent" => "bg-danger",
+        _ => "bg-light text-dark"
+    };
+
+    private string GetStatusBadgeClass(string status) => status switch
+    {
+        "New" => "bg-primary",
+        "InProgress" => "bg-warning text-dark",
+        "Resolved" => "bg-success",
+        "Closed" => "bg-secondary",
+        _ => "bg-light text-dark"
+    };
+}
