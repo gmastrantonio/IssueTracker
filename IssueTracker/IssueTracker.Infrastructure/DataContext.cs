@@ -35,6 +35,18 @@ namespace IssueTracker.Infrastructure.Data
                         v => v.ToString(),
                         v => (TicketPriority)Enum.Parse(typeof(TicketPriority), v));
             });
+
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.Author)
+                .WithMany(u => u.CreatedTickets)
+                .HasForeignKey(t => t.AuthorId)
+                .OnDelete(DeleteBehavior.Restrict); // Evita conflitti di cascade delete
+
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.AssignedTo)
+                .WithMany(u => u.AssignedTickets)
+                .HasForeignKey(t => t.AssignedToId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

@@ -76,5 +76,51 @@ namespace IssueTracker.API.Controllers
 
             return CreatedAtAction(nameof(GetTickets), new { id = newTicket.Id }, responseDto);
         }
+
+        // PUT: api/tickets/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTicket(int id, [FromBody] UpdateTicketDto dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Cerchiamo il ticket nel database
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket == null)
+            {
+                return NotFound($"Ticket con ID {id} non trovato.");
+            }
+
+            // Aggiorniamo le proprietà con i dati provenienti dal DTO
+            ticket.Title = dto.Title;
+            ticket.Description = dto.Description;
+            ticket.Priority = dto.Priority;
+            ticket.Status = dto.Status;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TicketExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent(); // Risposta standard 204 per i PUT andati a buon fine senza corpo di ritorno
+        }
+
+        private bool TicketExists(int id)
+        {
+            return _context.Tickets.Any(e => e.Id == id);
+        }
     }
 }

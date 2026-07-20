@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "IssueTracker.Client",
   "resources": {
-    "hash": "sha256-AxP8NZPZWbVwcLG2SqmLTaPoLSG+HwjWoo9rowfUanA=",
+    "hash": "sha256-ndGPrnPc0JIMIjwsOH66Q+VhsZp7p67t7/qiyvNN2YU=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-YDHEHpc+/PUWFYa9BMCN3EcVlpemjKD024swcpPfMIQ="
     },
@@ -209,12 +209,12 @@
       "mscorlib.wasm": "sha256-K9Dyt2y2qc5iOiFtzVJ54OrivbmVXDxkD16w+GkNz6Y=",
       "netstandard.wasm": "sha256-cdbfmZR3ZtA/HeSPpbwrUoRjB1vl4OgPSKGeGSmtiug=",
       "System.Private.CoreLib.wasm": "sha256-naY/8zY/5LD24ypcNRlECeSByBMi44aNk+g16oi63Mc=",
-      "IssueTracker.Core.wasm": "sha256-A1/6tl3JWmX2ShiNw8o5k6vVOWAw0UkLwrd6tdXSOqQ=",
-      "IssueTracker.Client.wasm": "sha256-TU4LZYkGNFoMN7RyMmqeR+c6nm5KD9H29V06jYOrTOM="
+      "IssueTracker.Core.wasm": "sha256-szYjVF19rymR3j6M+MmOLEs80bHlPeWb6XKmU8i/Z/4=",
+      "IssueTracker.Client.wasm": "sha256-3ZEXhcQkQ1YV66oarE+Ua9EmdsIePTlgLsw5ubQ2qSo="
     },
     "pdb": {
-      "IssueTracker.Core.pdb": "sha256-9NJhWvOZLakklDC9E5sOahcKYHyzYz67uPvU6oO93qk=",
-      "IssueTracker.Client.pdb": "sha256-GA3oRNjAutl4Hi9zapcCUAghrpItW+25uqFJsdy+AmA="
+      "IssueTracker.Core.pdb": "sha256-zxM42ZzssOxJwW6gqKJRWVVzPt0Azu5bmlWdhb7z9lA=",
+      "IssueTracker.Client.pdb": "sha256-rAa2pBa0S6VgN56nSFRpIz2YxBftpeLFaESUmuk/nkc="
     }
   },
   "cacheBootResources": true,

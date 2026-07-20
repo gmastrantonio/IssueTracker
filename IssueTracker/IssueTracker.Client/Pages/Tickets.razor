@@ -57,9 +57,15 @@
                                 </span>
                             </td>
                             <td>
-                                <span class="badge @GetStatusBadgeClass(ticket.Status)">
-                                    @ticket.Status
-                                </span>
+                                @* Sostituiamo il badge statico con una select interattiva *@
+                                <select class="form-select form-select-sm"
+                                        value="@ticket.Status"
+                                        @onchange="@(async (e) => await UpdateTicketStatus(ticket, e.Value?.ToString()))">
+                                    @foreach (var statusName in Enum.GetNames<IssueTracker.Core.Models.TicketStatus>())
+                                    {
+                                        <option value="@statusName">@statusName</option>
+                                    }
+                                </select>
                             </td>
                             <td>@ticket.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
                             <td>@ticket.AuthorName</td>
@@ -106,4 +112,44 @@
         "Closed" => "bg-secondary",
         _ => "bg-light text-dark"
     };
+
+    private async Task UpdateTicketStatus(TicketResponseDto ticket, string? newStatusStr)
+    {
+        if (string.IsNullOrEmpty(newStatusStr) || ticket.Status == newStatusStr) return;
+
+        // Convertiamo la stringa nell'Enum corretto
+        if (Enum.TryParse<IssueTracker.Core.Models.TicketStatus>(newStatusStr, out var parsedStatus))
+        {
+            // Prepariamo il DTO per l'aggiornamento
+            var updateDto = new UpdateTicketDto
+            {
+                Title = ticket.Title,
+                Description = ticket.Description,
+                // Convertiamo anche la priorità corrente da stringa a Enum
+                Priority = Enum.Parse<IssueTracker.Core.Models.TicketPriority>(ticket.Priority),
+                Status = parsedStatus
+            };
+
+            try
+            {
+                // Invochiamo il metodo PUT sulle API
+                var response = await Http.PutAsJsonAsync($"api/tickets/{ticket.Id}", updateDto);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Aggiorniamo lo stato locale così l'interfaccia si allinea senza ricaricare la pagina
+                    ticket.Status = newStatusStr;
+                    Console.WriteLine($"Ticket #{ticket.Id} aggiornato con successo a {newStatusStr}!");
+                }
+                else
+                {
+                    Console.WriteLine("Errore durante l'aggiornamento del ticket sul server.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Errore di rete: {ex.Message}");
+            }
+        }
+    }
 }

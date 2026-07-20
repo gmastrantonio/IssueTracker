@@ -15,3 +15,4 @@ C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Infra
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Infrastructure\bin\Debug\net8.0\IssueTracker.Core.pdb
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Infrastructure\obj\Debug\net8.0\IssueTra.CC581761.Up2Date
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Infrastructure\obj\Debug\net8.0\IssueTracker.Infrastructure.genruntimeconfig.cache
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Infrastructure\obj\Debug\net8.0\IssueTracker.Infrastructure.sourcelink.json

@@ -9,3 +9,4 @@ C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\refint\IssueTracker.Core.dll
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.pdb
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\ref\IssueTracker.Core.dll
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Core\obj\Debug\net8.0\IssueTracker.Core.sourcelink.json

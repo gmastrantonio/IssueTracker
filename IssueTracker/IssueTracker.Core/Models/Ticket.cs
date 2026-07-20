@@ -12,6 +12,12 @@ namespace IssueTracker.Core.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Per ora usiamo un id autore fittizio, utile per quando implementeremo gli utenti
-        public int AuthorId { get; set; } = 1;
+        // Chi ha aperto il ticket
+        public int AuthorId { get; set; }
+        public User Author { get; set; } = null!;
+
+        // A chi è assegnato il ticket (nullable perché all'inizio può non essere assegnato)
+        public int? AssignedToId { get; set; }
+        public User? AssignedTo { get; set; }
     }
 }
