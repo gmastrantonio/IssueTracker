@@ -3,7 +3,10 @@
 namespace IssueTracker.Core.Models;
 
 
-[Table("User")] // <--- Forza EF a cercare la tabella "User" al singolare
+//[Table("User")] // <--- Forza EF a cercare la tabella "User" al singolare
+//corretto rinominando la tabella in "Users" al plurale, quindi non serve più il TableAttribute.
+//Nel datacontext è stato definito DbSet<User> Users { get; set; } quindi EF capisce che la tabella si chiama Users
+//cancellato il vecchio migration e creato un nuovo migration per aggiornare il database con la nuova tabella Users
 public class User
 {
     public int Id { get; set; }
