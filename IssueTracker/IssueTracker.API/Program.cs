@@ -1,7 +1,13 @@
 using IssueTracker.Infrastructure.Data;
+using IssueTracker.Core.Interfaces;
+using IssueTracker.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Registra il password hasher
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 // ==========================================
 // 1. REGISTRAZIONE DEI SERVIZI (Prima di Build)

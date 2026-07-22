@@ -12,6 +12,7 @@ namespace IssueTracker.Infrastructure.Data
 
         // Questa riga dice ad Entity Framework di creare una tabella denominata "Tickets" basata sul modello "Ticket"
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

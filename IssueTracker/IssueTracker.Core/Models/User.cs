@@ -1,5 +1,9 @@
-﻿namespace IssueTracker.Core.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
+namespace IssueTracker.Core.Models;
+
+
+[Table("User")] // <--- Forza EF a cercare la tabella "User" al singolare
 public class User
 {
     public int Id { get; set; }

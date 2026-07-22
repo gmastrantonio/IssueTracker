@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{543C8F7E-C2A9-464F-A3E9-FBD11BD881A6}|IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.infrastructure\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{543C8F7E-C2A9-464F-A3E9-FBD11BD881A6}|IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj|solutionrelative:issuetracker.infrastructure\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{543C8F7E-C2A9-464F-A3E9-FBD11BD881A6}|IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.infrastructure\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{543C8F7E-C2A9-464F-A3E9-FBD11BD881A6}|IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj|solutionrelative:issuetracker.infrastructure\\migrations\\datacontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E043F536-6CB2-4ACB-A258-76D0BC91A750}|IssueTracker.Core\\IssueTracker.Core.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E043F536-6CB2-4ACB-A258-76D0BC91A750}|IssueTracker.Core\\IssueTracker.Core.csproj|solutionrelative:issuetracker.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{543C8F7E-C2A9-464F-A3E9-FBD11BD881A6}|IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.infrastructure\\migrations\\20260720053108_adduserauthentication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,7 +23,12 @@
       "RelativeMoniker": "D:0:0:{543C8F7E-C2A9-464F-A3E9-FBD11BD881A6}|IssueTracker.Infrastructure\\IssueTracker.Infrastructure.csproj|solutionrelative:issuetracker.infrastructure\\migrations\\20260715055739_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/IssueTrackerDb_Clean/True/SqlTable/dbo.Tickets.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{77E99912-890E-422E-9394-640FE42EA056}|IssueTracker.API\\IssueTracker.API.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77E99912-890E-422E-9394-640FE42EA056}|IssueTracker.API\\IssueTracker.API.csproj|solutionrelative:issuetracker.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77E99912-890E-422E-9394-640FE42EA056}|IssueTracker.API\\IssueTracker.API.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.api\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77E99912-890E-422E-9394-640FE42EA056}|IssueTracker.API\\IssueTracker.API.csproj|solutionrelative:issuetracker.api\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -49,51 +62,93 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DataContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\DataContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Migrations\\DataContextModelSnapshot.cs",
               "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\DataContextModelSnapshot.cs",
               "RelativeToolTip": "IssueTracker.Infrastructure\\Migrations\\DataContextModelSnapshot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAwEMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T05:40:17.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20260720053108_AddUserAuthentication.cs",
-              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
-              "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
-              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
-              "RelativeToolTip": "IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T05:40:06.123Z",
+              "WhenOpened": "2026-07-22T06:04:27.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "IssueTracker.Core\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Core\\Models\\User.cs",
+              "RelativeToolTip": "IssueTracker.Core\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T06:03:40.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "20260715055739_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260715055739_InitialCreate.cs",
               "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Migrations\\20260715055739_InitialCreate.cs",
               "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260715055739_InitialCreate.cs",
               "RelativeToolTip": "IssueTracker.Infrastructure\\Migrations\\20260715055739_InitialCreate.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T05:39:56.417Z",
+              "WhenOpened": "2026-07-22T06:03:14.682Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\DataContext.cs",
+              "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\DataContext.cs",
+              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\DataContext.cs",
+              "RelativeToolTip": "IssueTracker.Infrastructure\\DataContext.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAkwBwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T06:02:51.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "dbo.Tickets [Dati]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/IssueTrackerDb_Clean/True/SqlTable/dbo.Tickets.sql",
-              "ToolTip": "dbo.Tickets [Dati]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-07-20T05:36:34.3Z",
+              "Title": "20260720053108_AddUserAuthentication.cs",
+              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
+              "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
+              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
+              "RelativeToolTip": "IssueTracker.Infrastructure\\Migrations\\20260720053108_AddUserAuthentication.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T06:02:12.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "IssueTracker.API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "IssueTracker.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-21T17:40:48.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TicketsController.cs",
+              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Controllers\\TicketsController.cs",
+              "RelativeDocumentMoniker": "IssueTracker.API\\Controllers\\TicketsController.cs",
+              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Controllers\\TicketsController.cs",
+              "RelativeToolTip": "IssueTracker.API\\Controllers\\TicketsController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAFkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-21T17:40:46.898Z",
               "EditorCaption": ""
             }
           ]

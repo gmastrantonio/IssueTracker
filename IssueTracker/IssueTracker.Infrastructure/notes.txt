@@ -1,0 +1,2 @@
+Add-Migration "name of commit" //create a migration file with the name of the commit
+Update-Database //apply changes to the database
