@@ -1,10 +1,11 @@
-using IssueTracker.Infrastructure.Data;
 using IssueTracker.Core.Interfaces;
+using IssueTracker.Infrastructure.Data;
 using IssueTracker.Infrastructure.Security;
-using Microsoft.EntityFrameworkCore;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,8 +47,30 @@ builder.Services.AddControllers();
 
 // Registra i servizi per Swagger
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// ...
 
+builder.Services.AddSwaggerGen(options =>
+{
+    // 1. Definiamo lo schema di sicurezza Bearer
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Inserisci 'Bearer' seguito da uno spazio e dal tuo token JWT."
+    });
+
+    // 2. Usiamo la lambda doc => ... per passare il requisito
+    options.AddSecurityRequirement(doc => new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecuritySchemeReference("Bearer"),
+            new List<string>()
+        }
+    });
+});
 // Configura la policy CORS
 builder.Services.AddCors(options =>
 {

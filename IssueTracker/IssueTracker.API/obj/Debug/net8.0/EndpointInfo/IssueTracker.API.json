@@ -452,8 +452,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Inserisci 'Bearer' seguito da uno spazio e dal tuo token JWT.",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
   },
+  "security": [
+    { }
+  ],
   "tags": [
     {
       "name": "Auth"
