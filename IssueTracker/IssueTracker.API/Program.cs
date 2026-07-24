@@ -2,9 +2,30 @@ using IssueTracker.Infrastructure.Data;
 using IssueTracker.Core.Interfaces;
 using IssueTracker.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//registrazione servizio per autenticazione token
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:SecretKey"]!)),
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["JwtSettings:Audience"],
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        };
+    });
 
 // Registra il password hasher
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
@@ -58,6 +79,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("BlazorClientPolicy");
 
 app.UseHttpsRedirection();
+app.UseAuthentication(); // DEVE stare PRIMA di app.UseAuthorization()
 app.UseAuthorization();
 
 // Mappa gli endpoint dei Controller

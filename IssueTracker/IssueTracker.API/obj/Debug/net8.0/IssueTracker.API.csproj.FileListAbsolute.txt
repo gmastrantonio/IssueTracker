@@ -174,3 +174,5 @@ C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.API\b
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.API\bin\Debug\net8.0\IssueTracker.Infrastructure.pdb
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.API\bin\Debug\net8.0\IssueTracker.Core.pdb
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.API\obj\Debug\net8.0\IssueTracker.API.sourcelink.json
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.API\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -1041,8 +1041,8 @@ C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Clien
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\bin\Debug\net8.0\IssueTracker.Core.pdb
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\webcil\IssueTracker.Core.wasm
 C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\IssueTracker.Client.sourcelink.json
-C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\jfpgkrlzmr-1lqzinpozq.gz
-C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\xxng8d0cwg-9oinhg02gd.gz
-C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\inwgcn75ub-1voqeu4p7q.gz
-C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\tucyt63eb7-lrfh6rztss.gz
-C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\z0odekkc9z-aw8bdpaov4.gz
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\inwgcn75ub-bbfin91df4.gz
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\tucyt63eb7-l3xs3eo61a.gz
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\jfpgkrlzmr-5d49cmepcr.gz
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\xxng8d0cwg-ahx1h02gkn.gz
+C:\Users\giuse\Documents\Repository\IssueTracker\IssueTracker\IssueTracker.Client\obj\Debug\net8.0\compressed\z0odekkc9z-uk3vjw5vjw.gz

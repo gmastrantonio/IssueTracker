@@ -14,11 +14,13 @@ namespace IssueTracker.API.Controllers
 
         private readonly DataContext _context;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly ITokenService _tokenService;
 
-        public AuthController(DataContext context, IPasswordHasher passwordHasher)
+        public AuthController(DataContext context, IPasswordHasher passwordHasher, ITokenService tokenService)
         {
             _context = context;
             _passwordHasher = passwordHasher;
+            _tokenService = tokenService;
         }
 
         // POST: api/auth/register
@@ -61,7 +63,17 @@ namespace IssueTracker.API.Controllers
             var isPasswordValid = _passwordHasher.VerifyPassword(dto.Password, user.PasswordHash);
             if (!isPasswordValid)
                 return BadRequest($"Password non valida per l'utente {dto.Username}!");
-            return Ok();
+
+            // 3. Genera il token JWT
+            string token = _tokenService.CreateToken(user);
+
+            // 4. Restituisce la risposta con il token
+            return Ok(new AuthResponseDto
+            {
+                Token = token,
+                Username = user.Username,
+                Role = user.Role.ToString()
+            });
 
         }
     }
