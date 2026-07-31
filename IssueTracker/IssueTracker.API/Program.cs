@@ -82,6 +82,11 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Abilita il servizio di archiviazione protetta nel browser
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore(); 
+
+
 // ==========================================
 // 2. COSTRUZIONE DELL'APPLICAZIONE
 // ==========================================

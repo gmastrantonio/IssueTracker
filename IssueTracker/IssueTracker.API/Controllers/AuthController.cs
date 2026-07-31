@@ -2,6 +2,8 @@
 using IssueTracker.Core.Interfaces;
 using IssueTracker.Core.Models;
 using IssueTracker.Infrastructure.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,7 @@ namespace IssueTracker.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [AllowAnonymous] //Accessibile a chiunque senza Token
     public class AuthController : ControllerBase
     {
 
@@ -58,11 +61,11 @@ namespace IssueTracker.API.Controllers
             // verify if the user exists
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Username == dto.Username);
             if (user == null)
-                return Unauthorized($"Utente {dto.Username} non trovato!");
+                return Unauthorized($"Credenziali non valide!");
             // verify the password
             var isPasswordValid = _passwordHasher.VerifyPassword(dto.Password, user.PasswordHash);
             if (!isPasswordValid)
-                return BadRequest($"Password non valida per l'utente {dto.Username}!");
+                return BadRequest($"Credenziali non valide!");
 
             // 3. Genera il token JWT
             string token = _tokenService.CreateToken(user);

@@ -1,13 +1,16 @@
 ﻿using IssueTracker.Core.DTOs;
 using IssueTracker.Core.Models;
 using IssueTracker.Infrastructure.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace IssueTracker.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize] // Tutti gli endpoint richiedono un Token JWT valido
     public class TicketsController : ControllerBase
     {
         private readonly DataContext _context;
@@ -48,6 +51,13 @@ namespace IssueTracker.API.Controllers
                 return BadRequest(ModelState);
             }
 
+            // Recupera l'ID o lo Username dell'utente dal Token JWT
+            var username = User.Identity?.Name;
+
+            // Oppure recupera un Claim specifico (es. NameIdentifier)
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+
             // Mappiamo il CreateTicketDto sull'entità di dominio reale per il database
             var newTicket = new Ticket
             {
@@ -56,7 +66,7 @@ namespace IssueTracker.API.Controllers
                 Priority = dto.Priority,
                 Status = TicketStatus.New, // Un nuovo ticket parte sempre come "New"
                 CreatedAt = DateTime.UtcNow,
-                AuthorId = dto.AuthorId
+                AuthorId = int.Parse(userId)
             };
 
             _context.Tickets.Add(newTicket);
@@ -116,6 +126,22 @@ namespace IssueTracker.API.Controllers
             }
 
             return NoContent(); // Risposta standard 204 per i PUT andati a buon fine senza corpo di ritorno
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")] // Solo gli utenti con Role == "Admin" nel Token
+        public async Task<IActionResult> DeleteTicket(int id)
+        {
+            // Cerchiamo il ticket nel database
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket == null)
+            {
+                return NotFound($"Ticket con ID {id} non trovato.");
+            }
+
+            _context.Tickets.Remove(ticket);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
         private bool TicketExists(int id)
