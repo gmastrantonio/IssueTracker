@@ -67,17 +67,69 @@ namespace IssueTracker.API.Controllers
             if (!isPasswordValid)
                 return BadRequest($"Credenziali non valide!");
 
-            // 3. Genera il token JWT
+            // 3. Genera il token JWT ed il Refresh Token
             string token = _tokenService.CreateToken(user);
+            // Salva il Refresh Token nel database con scadenza a 7 giorni
+            var refreshToken = _tokenService.GenerateRefreshToken();
+            user.RefreshToken = refreshToken;
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            await _context.SaveChangesAsync();
 
             // 4. Restituisce la risposta con il token
             return Ok(new AuthResponseDto
             {
                 Token = token,
+                RefreshToken = refreshToken,
                 Username = user.Username,
                 Role = user.Role.ToString()
             });
 
+        }
+
+        [HttpPost("refresh")]
+        public async Task<ActionResult<AuthResponseDto>> Refresh(RefreshTokenRequestDto dto)
+        {
+            // Cerca l'utente con il Refresh Token fornito
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.RefreshToken == dto.RefreshToken);
+
+            // Controlla se l'utente esiste o se il Refresh Token è scaduto
+            if (user == null || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+            {
+                return Unauthorized("Refresh Token non valido o scaduto.");
+            }
+
+            // Genera una nuova coppia di Token (Token Rotation)
+            var newAccessToken = _tokenService.CreateToken(user);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = newRefreshToken;
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            await _context.SaveChangesAsync();
+
+            return Ok(new AuthResponseDto
+            {
+                Token = newAccessToken,
+                RefreshToken = newRefreshToken,
+                Username = user.Username,
+                Role = user.Role.ToString()
+            });
+        }
+
+        [HttpPost("revoke")]
+        [Authorize]
+        public async Task<IActionResult> Revoke()
+        {
+            var username = User.Identity?.Name;
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+
+            if (user == null) return BadRequest();
+
+            // Annulla il token nel DB
+            user.RefreshToken = null;
+            user.RefreshTokenExpiryTime = null;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }

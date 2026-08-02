@@ -23,4 +23,8 @@ public class User
     // o può avere molti ticket assegnati (se developer)
     public ICollection<Ticket> CreatedTickets { get; set; } = new List<Ticket>();
     public ICollection<Ticket> AssignedTickets { get; set; } = new List<Ticket>();
+
+    //entità per gestione Token JWT (breve) e Refresh Token (lunga durata)
+    public string? RefreshToken { get; set; }
+    public DateTime? RefreshTokenExpiryTime { get; set; }
 }
