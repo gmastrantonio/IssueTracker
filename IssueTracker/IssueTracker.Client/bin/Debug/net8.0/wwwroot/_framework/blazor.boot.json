@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "IssueTracker.Client",
   "resources": {
-    "hash": "sha256-UKFUNY5rQNfaFR80/0X+5ovH1T4yB8HlGR1vvveFrzc=",
+    "hash": "sha256-A123zXDCgUcR2PFPXGuYVLdTRUrH9XTQvtY9StDz3/I=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-YDHEHpc+/PUWFYa9BMCN3EcVlpemjKD024swcpPfMIQ="
     },
@@ -18,12 +18,13 @@
     },
     "coreAssembly": {},
     "assembly": {
-      "Microsoft.AspNetCore.Authorization.wasm": "sha256-CrngV8E5HRpzlDUVjdQhIFqFOiiLKKThO0qz3mc8FgU=",
-      "Microsoft.AspNetCore.Components.wasm": "sha256-YNS7ClBsT6axmu71C3qzwWeN4x7UU2nJHLZ7Gh7dUaE=",
+      "Microsoft.AspNetCore.Authorization.wasm": "sha256-aWXRewrufsfDGjla3aS5R9fC9IXdOUNyhvVk4NMQwcE=",
+      "Microsoft.AspNetCore.Components.wasm": "sha256-5oGOKWSZbdzksrWNifCv62pc7FcUv4aiHKaEpsUfGFQ=",
+      "Microsoft.AspNetCore.Components.Authorization.wasm": "sha256-yISJ/lmQw+/ekM3uth35JG6HLTaDhQjjG/cAH00Gjf0=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-pPoJ7L7eXebH7A2xJm4gtM5vMCMFMnd3otp4t+S1yyA=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-Q5dGRmDtzyDzBlMER5Zpz2x7ymJAPTwwX9jN0wjvrkE=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-E0n2cgZW/8g4kZpXFGn2RvZqVdFHAKB5nT9SdvMRKHc=",
-      "Microsoft.AspNetCore.Metadata.wasm": "sha256-3a2AZyYCwSi/jUXobjn/n3sNTBtK/Tmn6jqNm384hjM=",
+      "Microsoft.AspNetCore.Metadata.wasm": "sha256-W61NLMqOEUB4NkeY5KGV2hPMffT3szaMw8OTr080pNo=",
       "Microsoft.Extensions.Configuration.wasm": "sha256-UDGEQR7J3WTfzYMgOzxVIBwFQtKEeJvO8UgrWagypdE=",
       "Microsoft.Extensions.Configuration.Abstractions.wasm": "sha256-yNdqbqDWGiJo943D7LPak5xryCBEsNH0wtdiuU1R9VE=",
       "Microsoft.Extensions.Configuration.Binder.wasm": "sha256-fNNlyyW44y8Gp6dvOtsvHoVNzpT8lrKmPleg5CDhRAo=",
@@ -209,12 +210,12 @@
       "mscorlib.wasm": "sha256-K9Dyt2y2qc5iOiFtzVJ54OrivbmVXDxkD16w+GkNz6Y=",
       "netstandard.wasm": "sha256-cdbfmZR3ZtA/HeSPpbwrUoRjB1vl4OgPSKGeGSmtiug=",
       "System.Private.CoreLib.wasm": "sha256-naY/8zY/5LD24ypcNRlECeSByBMi44aNk+g16oi63Mc=",
-      "IssueTracker.Core.wasm": "sha256-RKmSmNF85sOL0NturEUrD1xMuWUMn2pvvj0Q1pj+NZY=",
-      "IssueTracker.Client.wasm": "sha256-7+b8AmhnamtdKj+9qQY2q3QRpTi0/LmXmTZ5Tg9rbP8="
+      "IssueTracker.Core.wasm": "sha256-XVMYypsP3bOXpPBJuZroiI1cGAxWNfxzE5tl3ETWoUQ=",
+      "IssueTracker.Client.wasm": "sha256-As50E/wBv7WZVwCkqdFloVsm7ANjpZdDDZR3pA4gLO0="
     },
     "pdb": {
-      "IssueTracker.Core.pdb": "sha256-zRC/RhuSF9pZVuMLJrBpZh1kNMzyWxPRMCx380RJw4A=",
-      "IssueTracker.Client.pdb": "sha256-pF1e2zhTxqYJbAcGqKV/4N12uYQ2oE5ybVkyzT3JEY0="
+      "IssueTracker.Core.pdb": "sha256-68IHCkecMD/cupdLNOVIbMw8ps/VMJ3YMvjqE7Ur8B4=",
+      "IssueTracker.Client.pdb": "sha256-QBaREtQnWhZFgZKoMPqC4C1rse5F0MC74u9jhGpVYbU="
     }
   },
   "cacheBootResources": true,

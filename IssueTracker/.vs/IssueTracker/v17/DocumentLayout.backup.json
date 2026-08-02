@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260731061730_AddRefreshTokenToUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:IssueTracker.Infrastructure\\Migrations\\20260731061730_AddRefreshTokenToUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E043F536-6CB2-4ACB-A258-76D0BC91A750}|IssueTracker.Core\\IssueTracker.Core.csproj|c:\\users\\giuse\\documents\\repository\\issuetracker\\issuetracker\\issuetracker.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E043F536-6CB2-4ACB-A258-76D0BC91A750}|IssueTracker.Core\\IssueTracker.Core.csproj|solutionrelative:issuetracker.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,7 +78,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "20260731061730_AddRefreshTokenToUser.cs",
+              "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260731061730_AddRefreshTokenToUser.cs",
+              "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Migrations\\20260731061730_AddRefreshTokenToUser.cs",
+              "ToolTip": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260731061730_AddRefreshTokenToUser.cs",
+              "RelativeToolTip": "IssueTracker.Infrastructure\\Migrations\\20260731061730_AddRefreshTokenToUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-31T06:17:30.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "TicketsController.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Controllers\\TicketsController.cs",
               "RelativeDocumentMoniker": "IssueTracker.API\\Controllers\\TicketsController.cs",
@@ -87,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Core\\Models\\UserRole.cs",
               "RelativeDocumentMoniker": "IssueTracker.Core\\Models\\UserRole.cs",
@@ -99,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Program.cs",
               "RelativeDocumentMoniker": "IssueTracker.API\\Program.cs",
@@ -112,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Security\\TokenService.cs",
               "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Security\\TokenService.cs",
@@ -125,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "notes.txt",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\notes.txt",
               "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\notes.txt",
@@ -137,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Core\\Models\\User.cs",
               "RelativeDocumentMoniker": "IssueTracker.Core\\Models\\User.cs",
@@ -150,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DataContext.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\DataContext.cs",
               "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\DataContext.cs",
@@ -162,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "IssueTracker.API\\Controllers\\AuthController.cs",
@@ -175,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.API\\appsettings.json",
               "RelativeDocumentMoniker": "IssueTracker.API\\appsettings.json",
@@ -187,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "20260722061017_User.cs",
               "DocumentMoniker": "C:\\Users\\giuse\\Documents\\Repository\\IssueTracker\\IssueTracker\\IssueTracker.Infrastructure\\Migrations\\20260722061017_User.cs",
               "RelativeDocumentMoniker": "IssueTracker.Infrastructure\\Migrations\\20260722061017_User.cs",

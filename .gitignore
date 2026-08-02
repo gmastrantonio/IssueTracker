@@ -488,3 +488,10 @@ $RECYCLE.BIN/
 /IssueTracker/IssueTracker.Client/obj/Debug/net8.0
 /IssueTracker/IssueTracker.Client/obj/Debug
 /IssueTracker/IssueTracker.Client/obj
+/IssueTracker/.vs/IssueTracker/v17
+/IssueTracker/IssueTracker.API/bin
+/IssueTracker/IssueTracker.API/bin
+/IssueTracker/IssueTracker.API/obj
+/IssueTracker/IssueTracker.Client/bin
+/IssueTracker/IssueTracker.Client/bin
+/IssueTracker/IssueTracker.Core/obj
