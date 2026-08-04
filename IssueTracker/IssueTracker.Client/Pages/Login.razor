@@ -1,0 +1,74 @@
+﻿@page "/login"
+@using IssueTracker.Client.Services
+@using IssueTracker.Core.DTOs
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Accedi</h3>
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @errorMessage
+                    </div>
+                }
+
+                <EditForm Model="loginDto" OnValidSubmit="HandleLogin">
+                    <DataAnnotationsValidator />
+
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <InputText @bind-Value="loginDto.Username" class="form-control" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <InputText @bind-Value="loginDto.Password" type="password" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" disabled="@isSubmitting">
+                        @if (isSubmitting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                            <span>Accesso in corso...</span>
+                        }
+                        else
+                        {
+                            <span>Accedi</span>
+                        }
+                    </button>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private LoginDto loginDto = new();
+    private string errorMessage = string.Empty;
+    private bool isSubmitting = false;
+
+    private async Task HandleLogin()
+    {
+        isSubmitting = true;
+        errorMessage = string.Empty;
+
+        bool success = await AuthService.LoginAsync(loginDto.Username, loginDto.Password);
+
+        if (success)
+        {
+            // Redireziona alla home page dopo il login completato
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            errorMessage = "Email o password non valide.";
+        }
+
+        isSubmitting = false;
+    }
+}

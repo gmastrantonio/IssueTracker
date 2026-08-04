@@ -1,0 +1,99 @@
+﻿@page "/register"
+@using IssueTracker.Client.Services
+@using IssueTracker.Core.DTOs
+@using IssueTracker.Core.Models
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">Accedi</h3>
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @errorMessage
+                    </div>
+                }
+
+                <EditForm Model="registerDto" OnValidSubmit="HandleRegistration">
+                    <DataAnnotationsValidator />
+
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <InputText @bind-Value="registerDto.Username" class="form-control" />
+                        <ValidationMessage For="@(() => registerDto.Username)" class="text-danger small" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Nome Completo</label>
+                        <InputText @bind-Value="registerDto.FullName" class="form-control" />
+                        <ValidationMessage For="@(() => registerDto.FullName)" class="text-danger small" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <InputText @bind-Value="registerDto.Email" class="form-control" />
+                        <ValidationMessage For="@(() => registerDto.Email)" class="text-danger small" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <InputText @bind-Value="registerDto.Password" type="password" class="form-control" />
+                        <ValidationMessage For="@(() => registerDto.Password)" class="text-danger small" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="role" class="form-label fw-bold">Priorità</label>
+                        <InputSelect id="role" class="form-select" @bind-Value="registerDto.Role">
+                            @foreach (var role in Enum.GetValues<UserRole>())
+                            {
+                                <option value="@role">@role</option>
+                            }
+                        </InputSelect>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" disabled="@isSubmitting">
+                        @if (isSubmitting)
+                        {
+                            <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                            <span>Registrazione in corso...</span>
+                        }
+                        else
+                        {
+                            <span>Registrati</span>
+                        }
+                    </button>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private RegisterDto registerDto = new();
+    private string errorMessage = string.Empty;
+    private bool isSubmitting = false;
+
+    private async Task HandleRegistration()
+    {
+        isSubmitting = true;
+        errorMessage = string.Empty;
+
+        bool success = await AuthService.RegisterAsync(registerDto);
+
+        if (success)
+        {
+            // Redireziona alla home page dopo il login completato
+            Navigation.NavigateTo("/");
+        }
+        else
+        {
+            errorMessage = "Email o password non valide.";
+        }
+
+        isSubmitting = false;
+    }
+}

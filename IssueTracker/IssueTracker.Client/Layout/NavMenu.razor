@@ -1,4 +1,8 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using IssueTracker.Client.Services
+@inject IAuthService AuthService
+@inject NavigationManager Navigation
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">IssueTracker.Client</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -29,6 +33,32 @@
                 <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Ticket Dashboard
             </NavLink>
         </div>
+
+        <!-- SEZIONE AUTENTICAZIONE DINAMICA -->
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3 mt-3 text-white-50 small">
+                    Utente: <strong class="text-white">@context.User.Identity?.Name</strong>
+                </div>
+                <div class="nav-item px-3">
+                    <button class="btn btn-link nav-link text-start w-100" @onclick="HandleLogout">
+                        <span class="bi bi-box-arrow-right-nav-menu" aria-hidden="true"></span> Logout
+                    </button>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="login">
+                        <span class="bi bi-box-arrow-in-right-nav-menu" aria-hidden="true"></span> Accedi / Login
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="register">
+                        <span class="bi bi-box-arrow-in-right-nav-menu" aria-hidden="true"></span> Registrazione
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
     </nav>
 </div>
 
@@ -40,5 +70,11 @@
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
+    }
+
+    private async Task HandleLogout()
+    {
+        await AuthService.LogoutAsync();
+        Navigation.NavigateTo("/login");
     }
 }
