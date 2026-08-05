@@ -1,8 +1,10 @@
 ﻿@page "/tickets"
 @using IssueTracker.Core.DTOs
 @using System.Net.Http.Json
+@using Microsoft.AspNetCore.Authorization
 @inject HttpClient Http
-
+@attribute [Authorize]
+<!-- attribute [Authorize(Roles = "Admin,Technician")] per specifica ruoli-->
 <PageTitle>Dashboard Ticket</PageTitle>
 
 <div class="container mt-4">
