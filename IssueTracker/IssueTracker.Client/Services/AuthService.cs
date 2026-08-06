@@ -91,4 +91,42 @@ public class AuthService : IAuthService
         }
         return response.IsSuccessStatusCode;
     }
+
+    public async Task<string?> RefreshTokenAsync()
+    {
+        var token = await _js.InvokeAsync<string>("localStorage.getItem", "authToken");
+        var refreshToken = await _js.InvokeAsync<string>("localStorage.getItem", "refreshToken");
+
+        if (string.IsNullOrWhiteSpace(token) || string.IsNullOrWhiteSpace(refreshToken))
+        {
+            await LogoutAsync();
+            return null;
+        }
+
+        var refreshModel = new RefreshTokenRequestDto{ AccessToken = token, RefreshToken = refreshToken };
+        var response = await _httpClient.PostAsJsonAsync("api/auth/refresh", refreshModel);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            await LogoutAsync();
+            return null;
+        }
+
+        var result = await response.Content.ReadFromJsonAsync<AuthResponseDto>();
+        if (result == null || string.IsNullOrWhiteSpace(result.Token))
+        {
+            await LogoutAsync();
+            return null;
+        }
+
+        // Salva i nuovi token ricevuti
+        await _js.InvokeVoidAsync("localStorage.setItem", "authToken", result.Token);
+        if (!string.IsNullOrWhiteSpace(result.RefreshToken))
+        {
+            await _js.InvokeVoidAsync("localStorage.setItem", "refreshToken", result.RefreshToken);
+        }
+
+        _authStateProvider.NotifyUserAuthentication(result.Token);
+        return result.Token;
+    }
 }
