@@ -1,5 +1,7 @@
 ﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using IssueTracker.Client.Services.Interfaces;
+
 //using IssueTracker.Client.DTOs;
 using IssueTracker.Core.DTOs;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -75,7 +77,7 @@ public class AuthService : IAuthService
     }
 
     public async Task<bool> RegisterAsync(RegisterDto registerDto)
-    {
+        {
         var response = await _httpClient.PostAsJsonAsync("api/auth/register", registerDto);
         if (!response.IsSuccessStatusCode) {
             var errorContent = await response.Content.ReadAsStringAsync();

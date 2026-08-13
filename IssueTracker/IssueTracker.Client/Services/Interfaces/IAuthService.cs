@@ -1,6 +1,6 @@
 ﻿using IssueTracker.Core.DTOs;
 
-namespace IssueTracker.Client.Services;
+namespace IssueTracker.Client.Services.Interfaces;
 
 public interface IAuthService
 {

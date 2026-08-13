@@ -1,9 +1,12 @@
 ﻿@page "/tickets/new"
+@using IssueTracker.Client.Interfaces.Services
+@using IssueTracker.Client.Services
 @using IssueTracker.Core.DTOs
 @using IssueTracker.Core.Models
 @using System.Net.Http.Json
 @inject HttpClient Http
 @inject NavigationManager Navigation
+@inject ITicketService TicketService
 
 <PageTitle>Nuovo Ticket</PageTitle>
 
@@ -73,9 +76,10 @@
         try
         {
             // Inviamo il DTO formattato in JSON alle API del nostro controller
-            var response = await Http.PostAsJsonAsync("api/tickets", newTicket);
+            //var response = await Http.PostAsJsonAsync("api/tickets", newTicket);
+            var response = await TicketService.CreateTicketAsync(newTicket);
 
-            if (response.IsSuccessStatusCode)
+            if (response != null)
             {
                 // Se il salvataggio va a buon fine, reindirizziamo l'utente alla dashboard dei ticket
                 Navigation.NavigateTo("/tickets");
