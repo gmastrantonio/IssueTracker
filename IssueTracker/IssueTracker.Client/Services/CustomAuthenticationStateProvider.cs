@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Text.Json;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.JSInterop; // Importante per IJSRuntime
+using Microsoft.JSInterop;
 
 namespace IssueTracker.Client.Services;
 
@@ -32,21 +32,22 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
             // Imposta l'header Authorization per le richieste HTTP
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
+            // AGGIORNATO: Passiamo "unique_name" per mappare Identity.Name e "role" per la gestione ruoli
+            var identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt", "unique_name", "role");
             var user = new ClaimsPrincipal(identity);
 
             return new AuthenticationState(user);
         }
         catch
         {
-            // Gestisce eventuali casi di Prerendering su Blazor Server/Auto
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
         }
     }
 
     public void NotifyUserAuthentication(string token)
     {
-        var identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt");
+        // AGGIORNATO: Passiamo "unique_name" e "role" anche qui quando l'utente fa il login
+        var identity = new ClaimsIdentity(ParseClaimsFromJwt(token), "jwt", "unique_name", "role");
         var user = new ClaimsPrincipal(identity);
 
         var authState = Task.FromResult(new AuthenticationState(user));

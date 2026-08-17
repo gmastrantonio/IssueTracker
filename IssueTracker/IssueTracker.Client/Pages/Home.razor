@@ -4,6 +4,17 @@
 
 <h1>Issue Tracker by Giuseppe</h1>
 
-<p>Benvenuto nel portale di ticket di Giuseppe Mastrantonio.<br />
-	Per iniziare procedi con la <a href="register">registrazione</a> o effettua il <a href="login">login</a> con un account già esistente.
-</p>
+
+<AuthorizeView>
+    <Authorized>
+        <p>
+            Benvenuto, @context.User.Identity?.Name!
+        </p>
+    </Authorized>
+    <NotAuthorized>
+        <p>
+            <h1>Benvenuto nel portale di ticket di Giuseppe Mastrantonio.</h1><br />
+            Per iniziare procedi con la <a href="register">registrazione</a> o effettua il <a href="login">login</a> con un account già esistente.
+        </p>
+    </NotAuthorized>
+</AuthorizeView>
