@@ -29,7 +29,8 @@
         <AuthorizeView>
             <Authorized>
                 <div class="nav-item px-3 mt-3 text-white-50 small">
-                    Utente: <strong class="text-white">@context.User.Identity?.Name</strong>
+                    Utente: <strong class="text-white">@context.User.Identity?.Name</strong><br />
+                    Ruolo: <strong class="text-white">@context.User.FindFirst("role")?.Value</strong>
                 </div>
                 <div class="nav-item px-3">
                     <button class="btn btn-link nav-link text-start w-100" @onclick="HandleLogout">

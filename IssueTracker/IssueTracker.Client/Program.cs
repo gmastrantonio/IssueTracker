@@ -1,5 +1,4 @@
 using IssueTracker.Client;
-using IssueTracker.Client.Interfaces.Services;
 using IssueTracker.Client.Services;
 using IssueTracker.Client.Services.Interfaces;
 using Microsoft.AspNetCore.Components.Authorization;

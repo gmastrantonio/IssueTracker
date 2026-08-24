@@ -1,4 +1,4 @@
-﻿using IssueTracker.Client.Interfaces.Services;
+﻿using IssueTracker.Client.Services.Interfaces;
 using IssueTracker.Core.DTOs; // Adatta il namespace per i tuoi modelli/DTO
 using System.Net.Http.Json;
 

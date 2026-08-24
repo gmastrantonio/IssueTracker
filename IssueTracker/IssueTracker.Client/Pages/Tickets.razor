@@ -2,6 +2,9 @@
 @using IssueTracker.Core.DTOs
 @using System.Net.Http.Json
 @using Microsoft.AspNetCore.Authorization
+@using IssueTracker.Client.Services
+@using IssueTracker.Client.Services.Interfaces
+@inject ITicketService ticketService
 @inject HttpClient Http
 @attribute [Authorize]
 <!-- attribute [Authorize(Roles = "Admin,Technician")] per specifica ruoli-->
@@ -40,6 +43,11 @@
                         <th>Stato</th>
                         <th>Creato il</th>
                         <th>Autore</th>
+                        <AuthorizeView Roles="Admin">
+                            <Authorized>
+                                <th>Elimina</th>
+                            </Authorized>
+                        </AuthorizeView>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,6 +79,16 @@
                             </td>
                             <td>@ticket.CreatedAt.ToLocalTime().ToString("dd/MM/yyyy HH:mm")</td>
                             <td>@ticket.AuthorName</td>
+                            <AuthorizeView Roles="Admin">
+                                <Authorized>
+                                    <td>
+                                        <button type="button" class="btn btn-danger"
+                                                @onclick="@(async (e) => await DeleteTicket(ticket.Id))">
+                                            Elimina
+                                        </button>
+                                    </td>
+                                </Authorized>
+                            </AuthorizeView>
                         </tr>
                     }
                 </tbody>
@@ -135,9 +153,9 @@
             try
             {
                 // Invochiamo il metodo PUT sulle API
-                var response = await Http.PutAsJsonAsync($"api/tickets/{ticket.Id}", updateDto);
-
-                if (response.IsSuccessStatusCode)
+                //var response = await Http.PutAsJsonAsync($"api/tickets/{ticket.Id}", updateDto);
+                var response = await ticketService.UpdateTicketAsync(ticket.Id, updateDto);
+                if (response)
                 {
                     // Aggiorniamo lo stato locale così l'interfaccia si allinea senza ricaricare la pagina
                     ticket.Status = newStatusStr;
@@ -152,6 +170,25 @@
             {
                 Console.WriteLine($"Errore di rete: {ex.Message}");
             }
+        }
+    }
+
+    private async Task DeleteTicket(int ticketId)
+    {
+        try
+        {
+            var response = await ticketService.DeleteTicketAsync(ticketId);
+            if (response)
+            {
+                Console.WriteLine($"Ticket {ticketId} eliminato correttamente!");
+            }
+            else
+            {
+                Console.WriteLine($"Errore nella cancellazione del ticket {ticketId}");
+            }
+        }catch(Exception ex)
+        {
+            Console.WriteLine("Errore nella cancellazione");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using IssueTracker.Core.DTOs; // Adatta il namespace in base a dove risiedono i DTO/Modelli dei Ticket
 
-namespace IssueTracker.Client.Interfaces.Services;
+namespace IssueTracker.Client.Services.Interfaces;
 
 public interface ITicketService
 {
