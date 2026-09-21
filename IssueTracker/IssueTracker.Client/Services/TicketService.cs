@@ -41,16 +41,11 @@ public class TicketService : ITicketService
     }
 
     // 3. CREAZIONE (Post)
-    public async Task<CreateTicketDto?> CreateTicketAsync(CreateTicketDto createDto)
+    public async Task<bool> CreateTicketAsync(CreateTicketDto createDto)
     {
         var response = await _httpClient.PostAsJsonAsync("api/tickets", createDto);
 
-        if (response.IsSuccessStatusCode)
-        {
-            return await response.Content.ReadFromJsonAsync<CreateTicketDto>();
-        }
-
-        return null;
+        return response.IsSuccessStatusCode;
     }
 
     // 4. MODIFICA (Put)

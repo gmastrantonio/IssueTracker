@@ -6,7 +6,7 @@ public interface ITicketService
 {
     Task<List<TicketResponseDto>> GetTicketsAsync();
     Task<TicketResponseDto?> GetTicketByIdAsync(int id);
-    Task<CreateTicketDto?> CreateTicketAsync(CreateTicketDto createDto);
+    Task<bool> CreateTicketAsync(CreateTicketDto createDto);
     Task<bool> UpdateTicketAsync(int id, UpdateTicketDto updateDto);
     Task<bool> DeleteTicketAsync(int id);
 }
