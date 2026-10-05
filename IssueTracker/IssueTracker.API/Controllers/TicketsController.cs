@@ -35,7 +35,7 @@ namespace IssueTracker.API.Controllers
                     Status = t.Status.ToString(),
                     Priority = t.Priority.ToString(),
                     CreatedAt = t.CreatedAt,
-                    AuthorName = "Utente di Test" // Sostituiremo con il nome reale quando avremo gli utenti
+                    AuthorName = t.Author.Username
                 })
                 .ToListAsync();
 
